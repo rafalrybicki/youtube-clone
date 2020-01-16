@@ -1,0 +1,14 @@
+<div id="comment-<%= comment.id %>">
+  <%= comment.user.username %> <small><%= comment.created_at.strftime("%B %d, %Y") %></small>
+  <% if current_user %>
+    <% if current_user == comment.user %>
+      <%= link_to "Edit", edit_article_comment_path(@article, comment), remote: true %>
+    <% end %>
+    <% if current_user == comment.user || current_user.admin %>
+      <%= link_to 'Destroy', article_comment_path(@article, comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "text-danger" %>
+    <% end %>
+  <% end %>
+  <p class="ml-3">
+    <%= comment.content %>
+  </p>
+</div>
