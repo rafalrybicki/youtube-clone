@@ -1,7 +1,7 @@
 import React from 'react';
 import './Home.scss';
 import {SideBar} from '../SideBar/SideBar';
-import {HomeContent} from './HomeContent/HomeContent';
+import HomeContent from './HomeContent/HomeContent';
 import {connect} from "react-redux";
 import * as videoActions from "../../store/actions/video";
 import {bindActionCreators} from 'redux';
