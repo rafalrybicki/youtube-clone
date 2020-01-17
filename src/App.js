@@ -6,6 +6,7 @@ import {Watch} from './containers/Watch/Watch';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {youtubeLibraryLoaded} from './store/actions/api';
+import API_KEY from './config.js'
 
 class App extends Component {
   render() {
@@ -28,7 +29,7 @@ class App extends Component {
 
     script.onload = () => {
       window.gapi.load('client', () => {
-        window.gapi.client.setApiKey(process.env.REACT_APP_API_KEY);
+        window.gapi.client.setApiKey(API_KEY);
         window.gapi.client.load('youtube', 'v3', () => {
           this.props.youtubeLibraryLoaded();
         });
